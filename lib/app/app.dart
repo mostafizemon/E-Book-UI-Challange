@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+import 'package:ui_challange/app/app_theme_data.dart';
+import 'package:ui_challange/screens/splash_screen/splash_screen.dart';
+
+class Erabook extends StatelessWidget {
+  const Erabook({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppThemeData.lightThemeData,
+      darkTheme: AppThemeData.darkThemeData,
+      home: SplashScreen(),
+    );
+  }
+}
