@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_challange/common/screens/main_bottom_nav_screen.dart';
 import 'package:ui_challange/common/widgets/auth_title_subtitle.dart';
 import 'package:ui_challange/common/widgets/input_title.dart';
 import 'package:ui_challange/screens/forgot_password_screen/forgot_password_screen.dart';
@@ -176,10 +177,11 @@ class _SigninScreenState extends State<SigninScreen> {
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                if (_formkey.currentState!.validate()) {
-                  print("Validation Passed! Proceeding with login...");
-                  //TODO: Move to HomeScreen
-                }
+                // if (_formkey.currentState!.validate()) {
+                //   print("Validation Passed! Proceeding with login...");
+                //   //TODO: Move to HomeScreen
+                // }
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>MainBottomNavScreen(),),(route) => false,);
               },
               child: Text("Sign In"),
             ),
