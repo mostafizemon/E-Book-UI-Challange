@@ -21,10 +21,7 @@ class AppThemeData {
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        hintStyle: TextStyle(
-          color: Colors.grey,
-          fontWeight: FontWeight.w400,
-        ),
+        hintStyle: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
         border: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColors.themeColor),
         ),
@@ -37,10 +34,18 @@ class AppThemeData {
       ),
 
       checkboxTheme: CheckboxThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
-        ),
-      )
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+      ),
+
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+          if (states.contains(MaterialState.selected)) {
+            return AppColors.themeColor;
+          }
+          return AppColors.themeColor;
+        }),
+        visualDensity: VisualDensity(horizontal: -4, vertical: -4),
+      ),
     );
   }
 

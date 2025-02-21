@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_challange/screens/gender_selection_screen/gender_selection_screen.dart';
 import 'package:ui_challange/screens/signin_screen/signin_screen.dart';
 import 'package:ui_challange/screens/welcome_screen/widgets/blur_effect.dart';
 import 'package:ui_challange/screens/welcome_screen/widgets/welcome_text.dart';
@@ -75,11 +76,24 @@ class WelcomeScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 16),
-                  ElevatedButton(onPressed: () {}, child: Text("Get Started")),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GenderSelectionScreen(),
+                        ),
+                      );
+                    },
+                    child: Text("Get Started"),
+                  ),
                   SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SigninScreen()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SigninScreen()),
+                      );
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(

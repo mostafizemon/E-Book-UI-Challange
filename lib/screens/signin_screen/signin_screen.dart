@@ -70,25 +70,6 @@ class _SigninScreenState extends State<SigninScreen> {
                           SizedBox(height: 16),
                           InputTitle(title: "Password"),
                           SizedBox(height: 4),
-                          // TextFormField(
-                          //   cursorColor: AppColors.themeColor,
-                          //   obscureText: !_isPasswordVisible,
-                          //   decoration: InputDecoration(
-                          //     suffixIcon: IconButton(
-                          //       onPressed: () {
-                          //         setState(() {
-                          //           _isPasswordVisible = !_isPasswordVisible;
-                          //         });
-                          //       },
-                          //       icon: Icon(
-                          //         color: AppColors.themeColor,
-                          //         _isPasswordVisible
-                          //             ? Icons.visibility
-                          //             : Icons.visibility_off,
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
                           TextFormField(
                             controller:
                                 _passwordTEController, // Add the controller
