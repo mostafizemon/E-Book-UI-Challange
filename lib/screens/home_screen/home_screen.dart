@@ -3,33 +3,13 @@ import 'package:ui_challange/common/widgets/book_card.dart';
 import '../../app/app_colors.dart';
 import '../../common/widgets/feature_title.dart';
 import '../../common/widgets/genre_card.dart';
+import '../../data/books_data.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> books = [
-      {
-        "imageUrl": "https://m.media-amazon.com/images/I/81e5hN0JwaL.jpg",
-        "title": "The House of Hades (Heroes of Olympus)",
-        "rating": 4.6,
-        "price": 7.50,
-      },
-      {
-        "imageUrl": "https://m.media-amazon.com/images/I/81e5hN0JwaL.jpg",
-        "title": "My Quiet Blacksmith Life in Another World",
-        "rating": 4.7,
-        "price": 6.99,
-      },
-      {
-        "imageUrl": "https://m.media-amazon.com/images/I/81e5hN0JwaL.jpg",
-        "title": "It Starts with Us: A Novel",
-        "rating": 4.8,
-        "price": 11.50,
-      },
-    ];
-
     final List<Map<String, String>> genres = const [
       {
         "title": "Romance",
@@ -52,6 +32,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
+        scrolledUnderElevation: 0,
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
           IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
