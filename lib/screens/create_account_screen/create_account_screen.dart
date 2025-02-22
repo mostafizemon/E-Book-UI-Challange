@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_challange/common/screens/main_bottom_nav_screen.dart';
 import 'package:ui_challange/common/widgets/auth_title_subtitle.dart';
 import 'package:ui_challange/common/widgets/custom_confirm_password_field.dart';
 import 'package:ui_challange/common/widgets/custom_linear_progress_indicator.dart';
@@ -88,7 +89,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 ),
               ),
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Sign UP")),
+            ElevatedButton(onPressed: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>MainBottomNavScreen()), (route) => false,);
+            }, child: Text("Sign UP")),
             SizedBox(height: 16),
           ],
         ),

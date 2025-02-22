@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_challange/common/widgets/book_card.dart';
-import '../../app/app_colors.dart';
+import '../../common/widgets/custom_appbar.dart';
 import '../../common/widgets/feature_title.dart';
 import '../../common/widgets/genre_card.dart';
 import '../../data/books_data.dart';
@@ -29,25 +29,10 @@ class HomeScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
-        ],
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset(
-            "assets/images/logo.png",
-            color: AppColors.themeColor,
-          ),
-        ),
-        title: Text(
-          "Erabook",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
-        ),
+      appBar: CustomAppbar(
+        title: "Erabook",
+        serachOnTap: () {},
+        notificationOnTap: () {},
       ),
 
       body: Padding(
@@ -58,7 +43,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 370,
                 child: ListView.separated(
-                  padding: EdgeInsets.fromLTRB(0,0,16,0),
+                  padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];
@@ -80,7 +65,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 100,
                 child: ListView.separated(
-                  padding: EdgeInsets.fromLTRB(0,0,16,0),
+                  padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
                   scrollDirection: Axis.horizontal,
                   itemCount: genres.length,
                   separatorBuilder: (context, index) => SizedBox(width: 12),
@@ -100,7 +85,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 370,
                 child: ListView.separated(
-                  padding: EdgeInsets.fromLTRB(0,0,16,0),
+                  padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];
@@ -123,7 +108,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 370,
                 child: ListView.separated(
-                  padding: EdgeInsets.fromLTRB(0,0,16,0),
+                  padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];
@@ -146,7 +131,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 370,
                 child: ListView.separated(
-                  padding: EdgeInsets.fromLTRB(0,0,16,0),
+                  padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];

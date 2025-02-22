@@ -85,6 +85,7 @@ class _BookGenreSelectionScreenState extends State<BookGenreSelectionScreen> {
                 ),
               ),
             ),
+            SizedBox(height: 8,),
             Row(
               children: [
                 Expanded(
