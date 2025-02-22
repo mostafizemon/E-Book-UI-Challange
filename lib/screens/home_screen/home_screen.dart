@@ -1,12 +1,53 @@
 import 'package:flutter/material.dart';
-
+import 'package:ui_challange/common/widgets/book_card.dart';
 import '../../app/app_colors.dart';
+import '../../common/widgets/feature_title.dart';
+import '../../common/widgets/genre_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> books = [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81e5hN0JwaL.jpg",
+        "title": "The House of Hades (Heroes of Olympus)",
+        "rating": 4.6,
+        "price": 7.50,
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81e5hN0JwaL.jpg",
+        "title": "My Quiet Blacksmith Life in Another World",
+        "rating": 4.7,
+        "price": 6.99,
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81e5hN0JwaL.jpg",
+        "title": "It Starts with Us: A Novel",
+        "rating": 4.8,
+        "price": 11.50,
+      },
+    ];
+
+    final List<Map<String, String>> genres = const [
+      {
+        "title": "Romance",
+        "imageUrl":
+            "https://cdn.shopify.com/s/files/1/0268/8847/0580/files/Irresistible_Chemistry_1024x1024.jpg?v=1719531436",
+      },
+      {
+        "title": "Thriller",
+        "imageUrl":
+            "https://cdn.shopify.com/s/files/1/0268/8847/0580/files/Irresistible_Chemistry_1024x1024.jpg?v=1719531436",
+      },
+      {
+        "title": "Inspiration",
+        "imageUrl":
+            "https://cdn.shopify.com/s/files/1/0268/8847/0580/files/Irresistible_Chemistry_1024x1024.jpg?v=1719531436",
+      },
+    ];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -22,68 +63,119 @@ class HomeScreen extends StatelessWidget {
             color: AppColors.themeColor,
           ),
         ),
-        title: Text("Erabook", style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(
+          "Erabook",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
+        ),
       ),
 
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SizedBox(
-          height: 350,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return Container(
-                height: 350,
-                width: 170,
-                child: Column(
-                  children: [
-                    Image.network(
-                      "https://m.media-amazon.com/images/I/81e5hN0JwaL.jpg",
-                      height: 250,
-                      fit: BoxFit.fill,
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "The House of Hades (Heroes of Olympus fdsfdsfdsf)",
-                      maxLines: 2,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-
-                    Row(
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.star_half, color: Colors.grey),
-                            SizedBox(width: 4),
-                            Text(
-                              "4.6",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(width: 8),
-                        Text(
-                          "\$7.50",
-                          style: TextStyle(fontSize: 16, color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ],
+        padding: const EdgeInsets.fromLTRB(16, 16, 0, 16),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 360,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    final book = books[index];
+                    return BookCard(
+                      imageUrl: book["imageUrl"],
+                      title: book["title"],
+                      rating: book["rating"],
+                      price: book["price"],
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(width: 12),
+                  itemCount: books.length,
                 ),
-              );
-            },
-            separatorBuilder: (context, index) {
-              return SizedBox(width: 8);
-            },
-            itemCount: 5,
+              ),
+              SizedBox(height: 16),
+              FeatureTitle(onPressed: () {}, title: "Explore by Genre"),
+              SizedBox(height: 8),
+
+              SizedBox(
+                height: 100,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: genres.length,
+                  separatorBuilder: (context, index) => SizedBox(width: 12),
+                  itemBuilder: (context, index) {
+                    return GenreCard(
+                      title: genres[index]["title"]!,
+                      imageUrl: genres[index]["imageUrl"]!,
+                    );
+                  },
+                ),
+              ),
+
+              SizedBox(height: 16),
+              FeatureTitle(onPressed: () {}, title: "Recommended For You"),
+              SizedBox(height: 8),
+
+              SizedBox(
+                height: 360,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    final book = books[index];
+                    return BookCard(
+                      imageUrl: book["imageUrl"],
+                      title: book["title"],
+                      rating: book["rating"],
+                      price: book["price"],
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(width: 12),
+                  itemCount: books.length,
+                ),
+              ),
+
+              SizedBox(height: 16),
+              FeatureTitle(onPressed: () {}, title: "On Your Purchased"),
+              SizedBox(height: 8),
+
+              SizedBox(
+                height: 360,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    final book = books[index];
+                    return BookCard(
+                      imageUrl: book["imageUrl"],
+                      title: book["title"],
+                      rating: book["rating"],
+                      price: book["price"],
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(width: 12),
+                  itemCount: books.length,
+                ),
+              ),
+
+              SizedBox(height: 16),
+              FeatureTitle(onPressed: () {}, title: "On Your Wishlist"),
+              SizedBox(height: 8),
+
+              SizedBox(
+                height: 360,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    final book = books[index];
+                    return BookCard(
+                      imageUrl: book["imageUrl"],
+                      title: book["title"],
+                      rating: book["rating"],
+                      price: book["price"],
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(width: 12),
+                  itemCount: books.length,
+                ),
+              ),
+            ],
           ),
         ),
       ),
