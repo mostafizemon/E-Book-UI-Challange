@@ -39,7 +39,7 @@ class WishListItemDesign extends StatelessWidget {
                   title,
                   maxLines: 3,
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
                   ),
