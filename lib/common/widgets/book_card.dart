@@ -17,7 +17,7 @@ class BookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180,
+      width: 175,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -25,7 +25,7 @@ class BookCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             child: Image.network(
               imageUrl,
-              height: 260,
+              height: 270,
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -36,23 +36,23 @@ class BookCard extends StatelessWidget {
             maxLines: 2,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 18,
+              fontSize: 16,
               overflow: TextOverflow.ellipsis,
             ),
           ),
           SizedBox(height: 8),
           Row(
             children: [
-              Icon(Icons.star_half, color: Colors.grey),
+              Icon(Icons.star_half, color: Colors.grey,size: 20,),
               SizedBox(width: 4),
               Text(
                 rating.toString(),
-                style: TextStyle(color: Colors.grey, fontSize: 16),
+                style: TextStyle(color: Colors.grey, fontSize: 14),
               ),
               SizedBox(width: 8),
               Text(
                 "\$${price.toStringAsFixed(2)}",
-                style: TextStyle(fontSize: 16, color: Colors.grey),
+                style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
             ],
           ),

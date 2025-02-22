@@ -37,8 +37,9 @@ class DiscoverScreen extends StatelessWidget {
               FeatureTitle(onPressed: () {}, title: "Top Charts"),
               SizedBox(height: 8),
               SizedBox(
-                height: 360,
+                height: 370,
                 child: ListView.separated(
+                  padding: EdgeInsets.fromLTRB(0,0,16,0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];
@@ -59,8 +60,9 @@ class DiscoverScreen extends StatelessWidget {
               SizedBox(height: 8),
 
               SizedBox(
-                height: 360,
+                height: 370,
                 child: ListView.separated(
+                  padding: EdgeInsets.fromLTRB(0,0,16,0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];
@@ -81,8 +83,9 @@ class DiscoverScreen extends StatelessWidget {
               SizedBox(height: 8),
 
               SizedBox(
-                height: 360,
+                height: 370,
                 child: ListView.separated(
+                  padding: EdgeInsets.fromLTRB(0,0,16,0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];
@@ -102,8 +105,9 @@ class DiscoverScreen extends StatelessWidget {
               SizedBox(height: 8),
 
               SizedBox(
-                height: 360,
+                height: 370,
                 child: ListView.separated(
+                  padding: EdgeInsets.fromLTRB(0,0,16,0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];

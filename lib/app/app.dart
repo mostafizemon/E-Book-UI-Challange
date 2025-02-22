@@ -12,7 +12,7 @@ class Erabook extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppThemeData.lightThemeData,
       darkTheme: AppThemeData.darkThemeData,
-      home: MainBottomNavScreen(),
+      home: SplashScreen(),
     );
   }
 }

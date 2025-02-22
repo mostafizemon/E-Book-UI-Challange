@@ -15,7 +15,7 @@ class FeatureTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
         ),
         Spacer(),
         IconButton(

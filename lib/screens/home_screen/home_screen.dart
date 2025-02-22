@@ -56,8 +56,9 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 360,
+                height: 370,
                 child: ListView.separated(
+                  padding: EdgeInsets.fromLTRB(0,0,16,0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];
@@ -79,6 +80,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 100,
                 child: ListView.separated(
+                  padding: EdgeInsets.fromLTRB(0,0,16,0),
                   scrollDirection: Axis.horizontal,
                   itemCount: genres.length,
                   separatorBuilder: (context, index) => SizedBox(width: 12),
@@ -96,8 +98,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 8),
 
               SizedBox(
-                height: 360,
+                height: 370,
                 child: ListView.separated(
+                  padding: EdgeInsets.fromLTRB(0,0,16,0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];
@@ -118,8 +121,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 8),
 
               SizedBox(
-                height: 360,
+                height: 370,
                 child: ListView.separated(
+                  padding: EdgeInsets.fromLTRB(0,0,16,0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];
@@ -140,8 +144,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 8),
 
               SizedBox(
-                height: 360,
+                height: 370,
                 child: ListView.separated(
+                  padding: EdgeInsets.fromLTRB(0,0,16,0),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final book = books[index];
