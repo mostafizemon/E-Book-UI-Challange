@@ -46,6 +46,13 @@ class AppThemeData {
         }),
         visualDensity: VisualDensity(horizontal: -4, vertical: -4),
       ),
+
+      switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.all(Colors.white),
+        trackColor: MaterialStateProperty.all(Colors.grey.shade300),
+        trackOutlineColor: MaterialStateProperty.all(Colors.transparent),
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
     );
   }
 

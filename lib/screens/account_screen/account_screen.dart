@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_challange/common/widgets/custom_appbar.dart';
+import 'package:ui_challange/screens/notification_screen/notification_screen.dart';
 import 'package:ui_challange/screens/personal_info_screen/personal_info_screen.dart';
 import '../../app/app_colors.dart';
 
@@ -63,9 +64,17 @@ class _AccountScreenState extends State<AccountScreen> {
             _buildAccountOption(Icons.payment, "Payment Methods", () {}),
             Divider(color: Colors.black12),
             _buildAccountOption(Icons.person, "Personal Info", () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalInfoScreen()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PersonalInfoScreen()),
+              );
             }),
-            _buildAccountOption(Icons.notifications, "Notification", () {}),
+            _buildAccountOption(Icons.notifications, "Notification", () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationScreen()),
+              );
+            }),
             _buildAccountOption(Icons.settings, "Preferences", () {}),
             _buildAccountOption(Icons.lock, "Security", () {}),
             _buildAccountOption(
@@ -107,8 +116,8 @@ class _AccountScreenState extends State<AccountScreen> {
           isDarkmode = value;
         });
       },
-      activeColor: AppColors.themeColor,
-      activeTrackColor: Colors.grey.shade300,
+      activeColor: Colors.white,
+      activeTrackColor: AppColors.themeColor,
       inactiveThumbColor: Colors.white,
       inactiveTrackColor: Colors.grey.shade300,
     );
@@ -123,7 +132,7 @@ class _AccountScreenState extends State<AccountScreen> {
   }) {
     return Column(
       children: [
-        SizedBox(height: 8,),
+        SizedBox(height: 8),
         ListTile(
           leading: CircleAvatar(
             backgroundColor: Colors.grey.shade200,

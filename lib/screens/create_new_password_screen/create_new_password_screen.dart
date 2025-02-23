@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_challange/common/widgets/auth_title_subtitle.dart';
 import 'package:ui_challange/common/widgets/custom_confirm_password_field.dart';
-import 'package:ui_challange/common/widgets/input_title.dart';
 
-import '../../app/app_colors.dart';
 
 class CreateNewPasswordScreen extends StatefulWidget {
   const CreateNewPasswordScreen({super.key});
