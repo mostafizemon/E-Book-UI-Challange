@@ -1,32 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:ui_challange/common/widgets/book_card.dart';
+import 'package:ui_challange/screens/book_list_screen/book_list_screen.dart';
 import '../../common/widgets/custom_appbar.dart';
 import '../../common/widgets/feature_title.dart';
 import '../../common/widgets/genre_card.dart';
 import '../../data/books_data.dart';
+import '../../data/genere_data.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> genres = const [
-      {
-        "title": "Romance",
-        "imageUrl":
-            "https://cdn.shopify.com/s/files/1/0268/8847/0580/files/Irresistible_Chemistry_1024x1024.jpg?v=1719531436",
-      },
-      {
-        "title": "Thriller",
-        "imageUrl":
-            "https://cdn.shopify.com/s/files/1/0268/8847/0580/files/Irresistible_Chemistry_1024x1024.jpg?v=1719531436",
-      },
-      {
-        "title": "Inspiration",
-        "imageUrl":
-            "https://cdn.shopify.com/s/files/1/0268/8847/0580/files/Irresistible_Chemistry_1024x1024.jpg?v=1719531436",
-      },
-    ];
+
 
     return Scaffold(
       appBar: CustomAppbar(
@@ -59,7 +45,9 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {}, title: "Explore by Genre"),
+              FeatureTitle(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "Explore by Genre",isgenre: true,)));
+              }, title: "Explore by Genre"),
               SizedBox(height: 8),
 
               SizedBox(
@@ -79,7 +67,9 @@ class HomeScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {}, title: "Recommended For You"),
+              FeatureTitle(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "Recommended For You")));
+              }, title: "Recommended For You"),
               SizedBox(height: 8),
 
               SizedBox(
@@ -102,7 +92,9 @@ class HomeScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {}, title: "On Your Purchased"),
+              FeatureTitle(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "On Your Purchased")));
+              }, title: "On Your Purchased"),
               SizedBox(height: 8),
 
               SizedBox(
@@ -125,7 +117,9 @@ class HomeScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {}, title: "On Your Wishlist"),
+              FeatureTitle(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "On Your Wishlist")));
+              }, title: "On Your Wishlist"),
               SizedBox(height: 8),
 
               SizedBox(

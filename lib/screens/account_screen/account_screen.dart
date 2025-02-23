@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_challange/common/widgets/custom_appbar.dart';
+import 'package:ui_challange/screens/personal_info_screen/personal_info_screen.dart';
 import '../../app/app_colors.dart';
 
 class AccountScreen extends StatefulWidget {
@@ -61,7 +62,9 @@ class _AccountScreenState extends State<AccountScreen> {
 
             _buildAccountOption(Icons.payment, "Payment Methods", () {}),
             Divider(color: Colors.black12),
-            _buildAccountOption(Icons.person, "Personal Info", () {}),
+            _buildAccountOption(Icons.person, "Personal Info", () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>PersonalInfoScreen()));
+            }),
             _buildAccountOption(Icons.notifications, "Notification", () {}),
             _buildAccountOption(Icons.settings, "Preferences", () {}),
             _buildAccountOption(Icons.lock, "Security", () {}),

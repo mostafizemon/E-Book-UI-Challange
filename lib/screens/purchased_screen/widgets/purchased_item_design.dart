@@ -68,7 +68,7 @@ class _PurchasedItemDesignState extends State<PurchasedItemDesign> {
                   widget.title,
                   maxLines: 3,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
                   ),

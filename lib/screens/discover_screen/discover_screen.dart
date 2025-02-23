@@ -3,6 +3,7 @@ import 'package:ui_challange/common/widgets/custom_appbar.dart';
 import 'package:ui_challange/common/widgets/feature_title.dart';
 import '../../common/widgets/book_card.dart';
 import '../../data/books_data.dart';
+import '../book_list_screen/book_list_screen.dart';
 
 class DiscoverScreen extends StatelessWidget {
   const DiscoverScreen({super.key});
@@ -17,7 +18,9 @@ class DiscoverScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              FeatureTitle(onPressed: () {}, title: "Top Charts"),
+              FeatureTitle(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "Top Charts")));
+              }, title: "Top Charts"),
               SizedBox(height: 8),
               SizedBox(
                 height: 370,
@@ -39,7 +42,9 @@ class DiscoverScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {}, title: "Top Selling"),
+              FeatureTitle(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "Top Selling")));
+              }, title: "Top Selling"),
               SizedBox(height: 8),
 
               SizedBox(
@@ -62,7 +67,9 @@ class DiscoverScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {}, title: "Top Free"),
+              FeatureTitle(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "Top Free")));
+              }, title: "Top Free"),
               SizedBox(height: 8),
 
               SizedBox(
@@ -84,7 +91,9 @@ class DiscoverScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {}, title: "Top New Releases"),
+              FeatureTitle(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "Top New Releases")));
+              }, title: "Top New Releases"),
               SizedBox(height: 8),
 
               SizedBox(
