@@ -33,7 +33,7 @@ class DiscoverScreen extends StatelessWidget {
                       imageUrl: book["imageUrl"],
                       title: book["title"],
                       rating: book["rating"],
-                      price: book["price"],
+                      price: book["price"], onTap: () {  },
                     );
                   },
                   separatorBuilder: (context, index) => SizedBox(width: 12),
@@ -58,7 +58,7 @@ class DiscoverScreen extends StatelessWidget {
                       imageUrl: book["imageUrl"],
                       title: book["title"],
                       rating: book["rating"],
-                      price: book["price"],
+                      price: book["price"], onTap: () {  },
                     );
                   },
                   separatorBuilder: (context, index) => SizedBox(width: 12),
@@ -83,7 +83,7 @@ class DiscoverScreen extends StatelessWidget {
                       imageUrl: book["imageUrl"],
                       title: book["title"],
                       rating: book["rating"],
-                      price: book["price"],
+                      price: book["price"], onTap: () {  },
                     );
                   },
                   separatorBuilder: (context, index) => SizedBox(width: 12),
@@ -107,7 +107,7 @@ class DiscoverScreen extends StatelessWidget {
                       imageUrl: book["imageUrl"],
                       title: book["title"],
                       rating: book["rating"],
-                      price: book["price"],
+                      price: book["price"], onTap: () {  },
                     );
                   },
                   separatorBuilder: (context, index) => SizedBox(width: 12),

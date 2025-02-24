@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_challange/common/widgets/book_card.dart';
+import 'package:ui_challange/screens/book_details_screen/book_details_screen.dart';
 import 'package:ui_challange/screens/book_list_screen/book_list_screen.dart';
 import '../../common/widgets/custom_appbar.dart';
 import '../../common/widgets/feature_title.dart';
@@ -12,8 +13,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: CustomAppbar(
         title: "Erabook",
@@ -38,6 +37,9 @@ class HomeScreen extends StatelessWidget {
                       title: book["title"],
                       rating: book["rating"],
                       price: book["price"],
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetailsScreen()));
+                      },
                     );
                   },
                   separatorBuilder: (context, index) => SizedBox(width: 12),
@@ -45,9 +47,21 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "Explore by Genre",isgenre: true,)));
-              }, title: "Explore by Genre"),
+              FeatureTitle(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => BookListScreen(
+                            title: "Explore by Genre",
+                            isgenre: true,
+                          ),
+                    ),
+                  );
+                },
+                title: "Explore by Genre",
+              ),
               SizedBox(height: 8),
 
               SizedBox(
@@ -67,9 +81,19 @@ class HomeScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "Recommended For You")));
-              }, title: "Recommended For You"),
+              FeatureTitle(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) =>
+                              BookListScreen(title: "Recommended For You"),
+                    ),
+                  );
+                },
+                title: "Recommended For You",
+              ),
               SizedBox(height: 8),
 
               SizedBox(
@@ -84,6 +108,7 @@ class HomeScreen extends StatelessWidget {
                       title: book["title"],
                       rating: book["rating"],
                       price: book["price"],
+                      onTap: () {},
                     );
                   },
                   separatorBuilder: (context, index) => SizedBox(width: 12),
@@ -92,9 +117,19 @@ class HomeScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "On Your Purchased")));
-              }, title: "On Your Purchased"),
+              FeatureTitle(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) =>
+                              BookListScreen(title: "On Your Purchased"),
+                    ),
+                  );
+                },
+                title: "On Your Purchased",
+              ),
               SizedBox(height: 8),
 
               SizedBox(
@@ -109,6 +144,7 @@ class HomeScreen extends StatelessWidget {
                       title: book["title"],
                       rating: book["rating"],
                       price: book["price"],
+                      onTap: () {},
                     );
                   },
                   separatorBuilder: (context, index) => SizedBox(width: 12),
@@ -117,9 +153,19 @@ class HomeScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 16),
-              FeatureTitle(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen(title: "On Your Wishlist")));
-              }, title: "On Your Wishlist"),
+              FeatureTitle(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) =>
+                              BookListScreen(title: "On Your Wishlist"),
+                    ),
+                  );
+                },
+                title: "On Your Wishlist",
+              ),
               SizedBox(height: 8),
 
               SizedBox(
@@ -134,6 +180,7 @@ class HomeScreen extends StatelessWidget {
                       title: book["title"],
                       rating: book["rating"],
                       price: book["price"],
+                      onTap: () {},
                     );
                   },
                   separatorBuilder: (context, index) => SizedBox(width: 12),

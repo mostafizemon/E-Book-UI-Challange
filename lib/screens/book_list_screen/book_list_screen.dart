@@ -47,7 +47,7 @@ class BookListScreen extends StatelessWidget {
                 title: books[index]["title"]!,
                 imageUrl: books[index]["imageUrl"]!,
                 price: books[index]["price"]!,
-                rating: books[index]["rating"]!,
+                rating: books[index]["rating"]!, onTap: () {  },
               );
             }
           },

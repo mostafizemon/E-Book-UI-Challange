@@ -1,239 +1,242 @@
 import 'package:flutter/material.dart';
+import 'package:ui_challange/common/widgets/feature_title.dart';
+import 'package:ui_challange/screens/book_details_screen/widgets/book_stats.dart';
+import 'package:ui_challange/screens/book_details_screen/widgets/ratings_reviews.dart';
 
-class BookDetailScreen extends StatelessWidget {
+import '../../app/app_colors.dart';
+import '../../common/widgets/book_card.dart';
+import '../../data/books_data.dart';
+
+class BookDetailsScreen extends StatelessWidget {
+  const BookDetailsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.file_download_outlined),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.share_outlined),
-            onPressed: () {},
-          ),
-        ],
-        elevation: 0,
         backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.contact_page)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.share)),
+        ],
       ),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    "https://m.media-amazon.com/images/I/91ocU8970hL.jpg", // Replace with your image URL
-                    height: 150,
-                    width: 110,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Harry Potter & the Deathly Hallows",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 220,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.network(
+                        "https://c8.alamy.com/comp/2C7GK8C/harry-potter-and-the-prisoner-of-azkaban-movie-poster-2C7GK8C.jpg",
+                        // width: 130,
+                        height: 220,
+                        fit: BoxFit.cover,
                       ),
-                      SizedBox(height: 4),
-                      Text(
-                        "J.K. Rowling",
-                        style: TextStyle(color: Colors.orange),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        "Released on Dec. 2015",
-                        style: TextStyle(color: Colors.black54, fontSize: 12),
-                      ),
-                      SizedBox(height: 8),
-                      Wrap(
-                        spacing: 6,
+                    ),
+                    SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _buildTag("Fantasy"),
-                          _buildTag("Fiction"),
-                          _buildTag("Magic"),
+                          Text(
+                            "Harry Potter & the Deathly Hallows",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            "J.K. Rowling",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.orange,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            "Released on Dec. 2015",
+                            style: TextStyle(fontSize: 14, color: Colors.grey),
+                          ),
+                          SizedBox(height: 8),
+
+                          // Categories
+                          Wrap(
+                            spacing: 8,
+                            runSpacing: 8,
+                            children: [
+                              _buildCategoryChip("Fantasy"),
+                              _buildCategoryChip("Fiction"),
+                              _buildCategoryChip("Mystery"),
+                              _buildCategoryChip("Magic"),
+                            ],
+                          ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _buildInfoItem(Icons.star, "4.9", "6.8K reviews"),
-                _buildInfoItem(Icons.storage, "5.6 MB", "Size"),
-                _buildInfoItem(Icons.menu_book, "784", "Pages"),
-                _buildInfoItem(Icons.people, "50M+", "Purchases"),
-              ],
-            ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.orange,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+              ),
+              SizedBox(height: 8),
+              BookStats(),
+              SizedBox(height: 16),
+              ElevatedButton(onPressed: () {}, child: Text("Buy USD \$9.99")),
+              SizedBox(height: 16),
+
+              FeatureTitle(onPressed: () {}, title: "About this Ebook"),
+              Text(
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+                maxLines: 4,
+                style: TextStyle(overflow: TextOverflow.ellipsis, fontSize: 16),
+              ),
+              SizedBox(height: 16),
+              FeatureTitle(onPressed: () {}, title: "Ratings & Reviews"),
+              SizedBox(height: 8),
+              RatingsReviews(),
+              SizedBox(height: 8),
+              Divider(color: Colors.black12),
+              SizedBox(height: 16),
+
+              Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Rate this Ebook",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black54,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        5,
+                        (index) => Icon(Icons.star_outline_outlined, size: 40),
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    SizedBox(
+                      width: 175,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: AppColors.themeColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            side: BorderSide(
+                              color: AppColors.themeColor,
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Text(
+                            "Write a Review",
+                            style: TextStyle(
+                              fontSize: 18, // Adjust font size if needed
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign:
+                                TextAlign.center, // Ensure text alignment
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 16),
+                    FeatureTitle(
+                      onPressed: () {},
+                      title: "Harry Potter Series",
+                    ),
+                    SizedBox(height: 8),
+
+                    SizedBox(
+                      height: 370,
+                      child: ListView.separated(
+                        padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          final book = books[index];
+                          return BookCard(
+                            imageUrl: book["imageUrl"],
+                            title: book["title"],
+                            rating: book["rating"],
+                            price: book["price"],
+                            onTap: () {
+                              // Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetailsScreen()));
+                            },
+                          );
+                        },
+                        separatorBuilder:
+                            (context, index) => SizedBox(width: 12),
+                        itemCount: books.length,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    FeatureTitle(onPressed: () {}, title: "Similar Ebooks"),
+                    SizedBox(height: 8),
+
+                    SizedBox(
+                      height: 370,
+                      child: ListView.separated(
+                        padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          final book = books[index];
+                          return BookCard(
+                            imageUrl: book["imageUrl"],
+                            title: book["title"],
+                            rating: book["rating"],
+                            price: book["price"],
+                            onTap: () {
+                              // Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetailsScreen()));
+                            },
+                          );
+                        },
+                        separatorBuilder:
+                            (context, index) => SizedBox(width: 12),
+                        itemCount: books.length,
+                      ),
+                    ),
+                  ],
                 ),
-                minimumSize: Size(double.infinity, 48),
               ),
-              onPressed: () {},
-              child: Text("Buy USD \$9.99"),
-            ),
-            SizedBox(height: 16),
-            _buildSectionTitle("About this Ebook"),
-            Text(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...",
-              style: TextStyle(color: Colors.black54),
-            ),
-            SizedBox(height: 16),
-            _buildSectionTitle("Ratings & Reviews"),
-            _buildRating(4.9, 6800),
-            SizedBox(height: 8),
-            _buildRatingBar(),
-            SizedBox(height: 16),
-            _buildSectionTitle("Rate this Ebook"),
-            _buildStarRating(),
-            SizedBox(height: 16),
-            OutlinedButton(
-              style: OutlinedButton.styleFrom(
-                side: BorderSide(color: Colors.orange),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                minimumSize: Size(double.infinity, 48),
-              ),
-              onPressed: () {},
-              child: Text(
-                "Write a Review",
-                style: TextStyle(color: Colors.orange),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTag(String text) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: Colors.grey.shade200,
-      ),
-      child: Text(
-        text,
-        style: TextStyle(fontSize: 12, color: Colors.black54),
-      ),
-    );
-  }
-
-  Widget _buildInfoItem(IconData icon, String title, String subtitle) {
-    return Column(
-      children: [
-        Icon(icon, color: Colors.black54),
-        SizedBox(height: 4),
-        Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
-        Text(
-          subtitle,
-          style: TextStyle(fontSize: 12, color: Colors.black54),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildSectionTitle(String title) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        Icon(Icons.arrow_forward, size: 20),
-      ],
-    );
-  }
-
-  Widget _buildRating(double rating, int reviews) {
-    return Row(
-      children: [
-        Text(
-          rating.toString(),
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-        ),
-        SizedBox(width: 8),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: List.generate(
-                5,
-                    (index) => Icon(Icons.star, color: Colors.orange, size: 20),
-              ),
-            ),
-            SizedBox(height: 4),
-            Text("($reviews reviews)", style: TextStyle(color: Colors.black54)),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget _buildRatingBar() {
-    return Column(
-      children: [
-        _buildSingleRatingBar(5, 0.6),
-        _buildSingleRatingBar(4, 0.2),
-        _buildSingleRatingBar(3, 0.1),
-        _buildSingleRatingBar(2, 0.1),
-        _buildSingleRatingBar(1, 0.1),
-      ],
-    );
-  }
-
-  Widget _buildSingleRatingBar(int stars, double percent) {
-    return Row(
-      children: [
-        Text(stars.toString()),
-        SizedBox(width: 4),
-        Expanded(
-          child: LinearProgressIndicator(
-            value: percent,
-            backgroundColor: Colors.grey.shade300,
-            color: Colors.orange,
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 
-  Widget _buildStarRating() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(
-        5,
-            (index) => Icon(Icons.star_border, size: 32, color: Colors.orange),
+  Widget _buildCategoryChip(String label) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          color: Colors.grey,
+        ),
       ),
     );
   }
